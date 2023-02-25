@@ -1,18 +1,19 @@
 # Esp32McpwmMotor
 
+
 [中文](./README.md) | [English](./README_EN.md)
 
-基于ESP32的MCPWM（Motor Control Pulse Width Modulator）实现的电机驱动库，最多支持6路电机驱动。
+The motor driving library based on ESP32's MCPWM (Motor Control Pulse Width Modulator) supports up to 6 channels of motor driving.
 
-
-使用方式：platformio.ini
+Usage in platformio.ini:
 
 ```ini
 lib_deps = 
 	https://github.com/fishros/Esp32McpwmMotor.git
 ```
 
-两路电机例程：
+
+Example code for two motors:
 
 ```cpp
 #include <Arduino.h>
@@ -30,19 +31,17 @@ void setup()
 
 void loop()
 {
-    motor.updateMotorSpeed(0, -70);
+    motor.updateMotorSpeed(0, -70);  // 70% duty cycle
     motor.updateMotorSpeed(1, 70);
     delay(2000);
     motor.updateMotorSpeed(0, 70);
     motor.updateMotorSpeed(1, -70);
     delay(2000);
 }
-
 ```
 
 
-
-四路电机例程：
+Example code for four motors:
 
 ```cpp
 #include <Arduino.h>
@@ -62,7 +61,7 @@ void setup()
 
 void loop()
 {
-    motor.updateMotorSpeed(0, -70);  // 70%占空比
+    motor.updateMotorSpeed(0, -70);  // 70% duty cycle
     motor.updateMotorSpeed(1, 70);
     motor.updateMotorSpeed(2, -70);
     motor.updateMotorSpeed(3, 70);
@@ -73,9 +72,6 @@ void loop()
     motor.updateMotorSpeed(3, -70);
     delay(2000);
 }
-
 ```
 
-
-
-Autor: 小鱼(fishros@foxmail.com)
+Author: fishros (fishros@foxmail.com)
